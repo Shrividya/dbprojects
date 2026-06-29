@@ -1,0 +1,13 @@
+resources:
+  jobs:
+    silver_enrich_trips:
+      name: silver_enrich_trips
+      tasks:
+        - task_key: enrich_trips
+          spark_python_task:
+            python_file: ../src/silver/enrich_trips_with_zones.py
+          environment_key: default
+      environments:
+        - environment_key: default
+          spec:
+            environment_version: "2"

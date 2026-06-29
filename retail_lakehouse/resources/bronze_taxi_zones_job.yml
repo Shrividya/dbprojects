@@ -1,0 +1,13 @@
+resources:
+  jobs:
+    bronze_taxi_zones_ingestion:
+      name: bronze_taxi_zones_ingestion
+      tasks:
+        - task_key: ingest_taxi_zones
+          spark_python_task:
+            python_file: ../src/bronze/ingest_taxi_zones.py
+          environment_key: default
+      environments:
+        - environment_key: default
+          spec:
+            environment_version: "2"
